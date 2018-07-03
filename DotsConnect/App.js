@@ -20,13 +20,18 @@ const instructions = Platform.select({
     'Shake or press menu button for dev menu',
 });
 
+const webViewStyle = Platform.select({
+  ios: {marginTop: 20},
+  android: {}
+});
+
 type Props = {};
 export default class App extends Component<Props> {
   render() {
     return (
       <WebView
         source={{uri: 'https://dotsconnect.us'}}
-        style={{marginTop: 20}}
+        style={webViewStyle}
       />
     );
   }
