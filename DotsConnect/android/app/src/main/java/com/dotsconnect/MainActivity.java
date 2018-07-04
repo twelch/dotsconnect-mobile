@@ -1,4 +1,4 @@
-package com.dotsconnect;
+package com.dotsconnect.base.reactnative;
 
 import com.facebook.react.ReactActivity;
 
@@ -10,6 +10,6 @@ public class MainActivity extends ReactActivity {
      */
     @Override
     protected String getMainComponentName() {
-        return "DotsConnect";
+        return "com.dotsconnect.base.reactnative";
     }
 }

@@ -1,4 +1,4 @@
-package com.dotsconnect;
+package com.dotsconnect.base.reactnative;
 
 import android.app.Application;
 
