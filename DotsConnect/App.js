@@ -12,6 +12,9 @@ import {
   View,
   WebView
 } from 'react-native';
+import Mapbox from '@mapbox/react-native-mapbox-gl'
+
+Mapbox.setAccessToken('pk.eyJ1IjoidHdlbGNoIiwiYSI6ImNqYzVxYTJ6NTF2NWUyeHBmNjcwdWwxY28ifQ.ug4rD1lc-yvGduyTkO18UA');
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +
@@ -29,29 +32,24 @@ type Props = {};
 export default class App extends Component<Props> {
   render() {
     return (
-      <WebView
-        source={{uri: 'https://dotsconnect.us'}}
-        style={webViewStyle}
-      />
+      <View style={styles.container}>
+        <Mapbox.MapView
+          styleURL={Mapbox.StyleURL.Street}
+          zoomLevel={15}
+          centerCoordinate={[11.256, 43.770]}
+          style={styles.container}>
+        </Mapbox.MapView>
+        <WebView
+          source={{uri: 'https://dotsconnect.us'}}
+          style={webViewStyle}
+        />
+      </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+    flex: 1
+  }
 });
